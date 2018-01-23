@@ -1,0 +1,16 @@
+.police-heading {
+    margin: 0 !important;
+}
+
+.dataTables_empty {
+    display: none;
+}
+
+.hp-vehicle-details {
+    width: 18% !important;
+}
+
+.hp-vehicle-details ul {
+    padding: 0 !important;
+    list-style-type: none !important;
+}

@@ -1,0 +1,105 @@
+.sidebar .nav li:hover p,
+.sidebar .nav li.active p {
+    color: #ffffff;
+}
+
+.hp-logo-image {
+    height: 53px !important;
+}
+
+.btn-info {
+    color: #fff;
+    /* background-color: #1e2050;
+    border-color: #1e2050; */
+    background-color: #0366d6;
+    border-color: #0366d6;
+    width: 100%;
+}
+
+.btn-info.active.focus,
+.btn-info.active:focus,
+.btn-info.active:hover,
+.btn-info:active.focus,
+.btn-info:active:focus,
+.btn-info:active:hover,
+.open>.dropdown-toggle.btn-info.focus,
+.open>.dropdown-toggle.btn-info:focus,
+.open>.dropdown-toggle.btn-info:hover {
+    color: #fff;
+    background-color: #0366d6;
+    border-color: #0366d6;
+}
+
+.sidebar .nav li>a,
+.bootstrap-navbar .nav li>a {
+    color: white;
+    background: #0366d6;
+    border-radius: 0px;
+}
+
+.drop {
+    width: 100%;
+}
+
+.dropdown-menu>li:first-child>a {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+
+/*ul.dropdown-menu.dispalyblock{
+margin: 0px;
+}*/
+
+.dropdown-slide .dropdown-menu {
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    transition-duration: .5s;
+    -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    float: none;
+    position: static;
+    display: block;
+    max-width: 12%;
+    webkit-background-clip: unset;
+    background-clip: unset;
+    border: none;
+    border: none;
+    border-radius: unset;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.open.dropdown-slide ul.dropdown-menu {
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    transition-duration: .5s;
+    -moz-transition-timing-function: ease-in;
+    -webkit-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    max-height: 1000px;
+    overflow: hidden;
+    max-width: 1000px;
+}
+
+.navbar-nav>li>.dropdown-menu,
+.dropdown-slide .dropdown-menu {
+    -webkit-transform: none;
+    /* transform: none */
+}
+
+.dropdown-menu {
+    webkit-box-shadow: none;
+    /* box-shadow: none */
+}
