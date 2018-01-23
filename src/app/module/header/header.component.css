@@ -1,0 +1,51 @@
+.btn-primary {
+    background: rgb(46, 109, 164);
+}
+
+.btn-danger {
+    background: rgb(212, 63, 58);
+}
+
+.panel {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.panel-default {
+    border: none !important;
+}
+
+.margin_zero {
+    margin: 0 !important;
+}
+
+.padding_zero {
+    padding: 0 !important;
+}
+
+.profile-upload-img {
+    margin-top: 10px;
+    height: 150px !important;
+}
+
+.rmv-img {
+    margin-left: 10px;
+    min-height: 40px;
+}
+
+.rmv-img:disabled {
+    background: #4cae4c;
+}
+
+.dis-btn:disabled {
+    background: #4cae4c;
+}
+
+.user-tag {
+    color: #777 !important;
+}
+
+.navbar-text {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
