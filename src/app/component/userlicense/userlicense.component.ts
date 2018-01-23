@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../service/http.service';
-import { Subject } from 'rxjs/Rx';
+import { Subject, Subscription } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-userlicense',
@@ -12,11 +12,12 @@ export class UserlicenseComponent implements OnInit {
   public config: any;
   public userLicenseList: any = [];
   public dtTrigger: Subject<any> = new Subject();
+  public busy: Subscription;
 
   constructor(private http: HttpService) { }
 
   ngOnInit() {
-    this.http.getJSON()
+    this.busy = this.http.getJSON()
       .subscribe((result) => {
         this.config = result;
         this.getLicenseList();
@@ -28,7 +29,7 @@ export class UserlicenseComponent implements OnInit {
   getLicenseList() {
     const sentQuery: any = new Object();
     sentQuery.type = 'licenseUserList';
-    this.http.get(this.config.api_path, sentQuery)
+    this.busy = this.http.get(this.config.api_path, sentQuery)
       .subscribe((result) => {
         if (result.status && Array.isArray(result.data)) {
           this.userLicenseList = result.data;

@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
 import { HttpService } from '../../service/http.service';
-import { Subject } from 'rxjs/Rx';
+import { Subject, Subscription } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-casehistory',
@@ -16,6 +15,7 @@ export class CasehistoryComponent implements OnInit, OnDestroy {
   public unsubscribePoliceParams: Subscription;
   public policeCaseList: any = [];
   public dtTrigger: Subject<any> = new Subject();
+  public busy: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpService) { }
 
@@ -23,7 +23,7 @@ export class CasehistoryComponent implements OnInit, OnDestroy {
     this.unsubscribePoliceParams  = this.route.params.subscribe(params => {
       this.policeId = params['police_id'];
       if (this.policeId) {
-        this.http.getJSON()
+        this.busy = this.http.getJSON()
           .subscribe((result) => {
             this.config = result;
             this.getPoliceCaseList();
@@ -38,7 +38,7 @@ export class CasehistoryComponent implements OnInit, OnDestroy {
     const sentQuery: any = new Object();
     sentQuery.type = 'caseList';
     sentQuery.police_id = this.policeId;
-    this.http.get(this.config.api_path, sentQuery)
+    this.busy = this.http.get(this.config.api_path, sentQuery)
       .subscribe((result) => {
         if (result.status && Array.isArray(result.data)) {
           this.policeCaseList = result.data;

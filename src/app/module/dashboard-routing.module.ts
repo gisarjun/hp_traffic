@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +14,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { HeaderModule } from './header/header.module';
 
 import { DataTablesModule } from 'angular-datatables';
+import { BusyModule } from 'angular2-busy';
 
 const routes: Routes = [
   { path: 'dashboard', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -34,11 +36,13 @@ const routes: Routes = [
     CasehistoryComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     SidebarModule,
     HeaderModule,
     DataTablesModule.forRoot(),
-    CommonModule
+    CommonModule,
+    BusyModule
   ],
   exports: [RouterModule]
 })

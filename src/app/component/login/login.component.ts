@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { URLSearchParams } from '@angular/http';
 
 import { HttpService } from '../../service/http.service';
+import { Subscription } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   public pwd;
   public api_path = 'http://demo.greatinnovus.com/hp_traffic/';
   public errorThrow: any;
+  public busy: Subscription;
 
   constructor(private route: Router, private http: HttpService) { }
 
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
       data.append('email', form.value.useremail);
       data.append('password', form.value.password);
       data.append('type', 'login');
-      this.http.post(this.api_path, data)
+      this.busy = this.http.post(this.api_path, data)
         .subscribe((result) => {
           if (result.status === 'success') {
             localStorage.setItem('currentUser', JSON.stringify(result.data));
